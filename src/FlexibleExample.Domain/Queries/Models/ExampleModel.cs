@@ -1,6 +1,7 @@
-﻿namespace FlexibleExample.Domain.Queries.Models;
-
-public class ExampleModel : Commands.Models.ExampleModel
+﻿namespace FlexibleExample.Domain.Queries.Models
 {
-    public int Id { get; init; }
+    public class ExampleModel : Commands.Models.ExampleModel
+    {
+        public int Id { get; init; }
+    }
 }

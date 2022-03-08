@@ -1,6 +1,7 @@
-﻿namespace FlexibleExample.Domain.Commands.Models;
-
-public class ExampleModel
+﻿namespace FlexibleExample.Domain.Commands.Models
 {
-    public string Value { get; init; }
+    public class ExampleModel
+    {
+        public string Value { get; init; }
+    }
 }

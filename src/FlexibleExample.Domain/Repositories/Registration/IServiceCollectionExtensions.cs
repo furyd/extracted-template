@@ -2,13 +2,14 @@
 using FlexibleExample.Domain.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FlexibleExample.Domain.Repositories.Registration;
-
-public static class IServiceCollectionExtensions
+namespace FlexibleExample.Domain.Repositories.Registration
 {
-    public static IServiceCollection RegisterRepositories(this IServiceCollection serviceCollection)
+    public static class IServiceCollectionExtensions
     {
-        serviceCollection.AddTransient<IExampleRepository, DefaultExampleRepository>();
-        return serviceCollection;
+        public static IServiceCollection RegisterRepositories(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddTransient<IExampleRepository, DefaultExampleRepository>();
+            return serviceCollection;
+        }
     }
 }

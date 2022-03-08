@@ -2,18 +2,19 @@
 using FlexibleExample.Domain.Commands.Models;
 using FlexibleExample.Domain.Repositories.Interfaces;
 
-namespace FlexibleExample.Domain.Commands.Implementation;
-
-public class DefaultExampleCommands : IExampleCommands
+namespace FlexibleExample.Domain.Commands.Implementation
 {
-    private readonly IExampleRepository _exampleRepository;
-
-    public DefaultExampleCommands(IExampleRepository exampleRepository)
+    public class DefaultExampleCommands : IExampleCommands
     {
-        _exampleRepository = exampleRepository;
+        private readonly IExampleRepository _exampleRepository;
+
+        public DefaultExampleCommands(IExampleRepository exampleRepository)
+        {
+            _exampleRepository = exampleRepository;
+        }
+
+        public void ExampleCommand(ExampleModel model) => _exampleRepository.Create(Map(model));
+
+        private static Repositories.Models.ExampleModel Map(ExampleModel model) => new() { Value = model.Value };
     }
-
-    public void ExampleCommand(ExampleModel model) => _exampleRepository.Create(Map(model));
-
-    private static Repositories.Models.ExampleModel Map(ExampleModel model) => new() { Value = model.Value };
 }

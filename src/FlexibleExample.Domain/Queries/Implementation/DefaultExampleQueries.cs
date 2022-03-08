@@ -2,19 +2,20 @@
 using FlexibleExample.Domain.Queries.Models;
 using FlexibleExample.Domain.Repositories.Interfaces;
 
-namespace FlexibleExample.Domain.Queries.Implementation;
-
-public class DefaultExampleQueries : IExampleQueries
+namespace FlexibleExample.Domain.Queries.Implementation
 {
-    private readonly IExampleRepository _exampleRepository;
-
-    public DefaultExampleQueries(IExampleRepository exampleRepository)
+    public class DefaultExampleQueries : IExampleQueries
     {
-        _exampleRepository = exampleRepository;
+        private readonly IExampleRepository _exampleRepository;
+
+        public DefaultExampleQueries(IExampleRepository exampleRepository)
+        {
+            _exampleRepository = exampleRepository;
+        }
+
+        public ExampleModel ExampleQuery(int id) => Map(_exampleRepository.Retrieve(id));
+
+        private static ExampleModel Map(Repositories.Models.ExampleModel model) =>
+            new () { Id = model.Id, Value = model.Value };
     }
-
-    public ExampleModel ExampleQuery(int id) => Map(_exampleRepository.Retrieve(id));
-
-    private static ExampleModel Map(Repositories.Models.ExampleModel model) =>
-        new () { Id = model.Id, Value = model.Value };
 }

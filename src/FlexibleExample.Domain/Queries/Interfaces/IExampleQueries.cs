@@ -1,8 +1,9 @@
 ﻿using FlexibleExample.Domain.Queries.Models;
 
-namespace FlexibleExample.Domain.Queries.Interfaces;
-
-public interface IExampleQueries
+namespace FlexibleExample.Domain.Queries.Interfaces
 {
-    ExampleModel ExampleQuery(int id);
+    public interface IExampleQueries
+    {
+        ExampleModel ExampleQuery(int id);
+    }
 }

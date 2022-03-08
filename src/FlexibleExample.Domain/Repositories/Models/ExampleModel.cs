@@ -1,8 +1,9 @@
-﻿namespace FlexibleExample.Domain.Repositories.Models;
-
-public class ExampleModel
+﻿namespace FlexibleExample.Domain.Repositories.Models
 {
-    public int Id { get; init; }
+    public class ExampleModel
+    {
+        public int Id { get; init; }
 
-    public string Value { get; init; }
+        public string Value { get; init; }
+    }
 }

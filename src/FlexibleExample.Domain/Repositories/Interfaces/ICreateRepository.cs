@@ -1,6 +1,7 @@
-﻿namespace FlexibleExample.Domain.Repositories.Interfaces;
-
-public interface ICreateRepository<in TModel>
+﻿namespace FlexibleExample.Domain.Repositories.Interfaces
 {
-    void Create(TModel model);
+    public interface ICreateRepository<in TModel>
+    {
+        void Create(TModel model);
+    }
 }

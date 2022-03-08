@@ -2,13 +2,14 @@
 using FlexibleExample.Domain.Queries.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FlexibleExample.Domain.Queries.Registration;
-
-public static class IServiceCollectionExtensions
+namespace FlexibleExample.Domain.Queries.Registration
 {
-    public static IServiceCollection RegisterQueries(this IServiceCollection serviceCollection)
+    public static class IServiceCollectionExtensions
     {
-        serviceCollection.AddTransient<IExampleQueries, DefaultExampleQueries>();
-        return serviceCollection;
+        public static IServiceCollection RegisterQueries(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddTransient<IExampleQueries, DefaultExampleQueries>();
+            return serviceCollection;
+        }
     }
 }
